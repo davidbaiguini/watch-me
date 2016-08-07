@@ -45,8 +45,8 @@ Open the web browser to `http://localhost:8888/`
 
 ### Additional Links
 
-[XXX](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
-[XXX](https://chrome.google.com/webstore/category/apps)
+[React Developer  Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+[Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
 
 ### Tech Used
@@ -64,7 +64,7 @@ Open the web browser to `http://localhost:8888/`
 
 
 
-### Tech Used
+### TODO
 - [ ] Mercury
 - [ ] prevent scroll on key up and key down on movies list page
 - [ ] Add description page
