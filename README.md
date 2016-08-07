@@ -71,6 +71,7 @@ Add materialize
 Import SCSS vendors from node_module
 Replace icons with fontello
 Add continuous Integration
+Add lazy-load images
 
 // Uses:
 React

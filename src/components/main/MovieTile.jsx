@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router';
 import classNames from 'classnames';
+import moment from 'moment';
 
 export default class MovieTile extends Component {
 	constructor(props) {
 		super(props)
 		this.movie = this.props.data;
 		this.movie.url = `/movie/${this.movie.id}`;
+		this.publishedDate = moment(this.movie.publishedDate).format('YYYY');
 	}
 	render() {
 		let classes = classNames(
@@ -18,16 +20,18 @@ export default class MovieTile extends Component {
 			<li className={classes} >
 				<Link to={this.movie.url}>
 					<figure className="movie-tile__figure">
-						<img src={this.movie.images[0].url}
-							 alt={this.movie.title}
-							 className="movie-tile__img"
-						/>
+						<div className="img-placeholder">
+							<img src={this.movie.images[0].url}
+								alt={this.movie.title}
+								className="movie-tile__img img-placeholder__img"
+								/>
+						</div>
 						<figcaption className="movie-tile__caption">
 							<div className="movie-tile__title">
 								{this.movie.title}
 							</div>
 							<div className="movie-tile__published-date">
-								{this.movie.publishedDate}
+								{this.publishedDate}
 							</div>
 						</figcaption>
 					</figure>

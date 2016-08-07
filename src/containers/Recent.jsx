@@ -12,8 +12,8 @@ export default class Player extends Component {
 
     render () {
         return (
-            <div className="grid">
-                Recently played
+            <div className="">
+                Recently played: Sorry about that
             </div>
         )
     }

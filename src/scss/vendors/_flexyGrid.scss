@@ -156,9 +156,12 @@ $class-type: if($use-silent-classes, unquote('%'), unquote('.'));
     // Base for grid
     // ***
 
+    padding: 0;
+    margin: 0;
+
     display: flex;
     flex-wrap: wrap;
-    margin-left: -($gutter);
+    margin-left: -($gutter);    
 
     // ***
     // Alignment per grid

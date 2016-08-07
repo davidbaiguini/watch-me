@@ -12,10 +12,12 @@ export default class MainLayout extends Component {
     }
     render () {
         return (
-            <main className="">
+            <div className="">
                 <Header />
-                {this.props.children}
-            </main>
+                <main className="l-main">
+                    {this.props.children}
+                </main>
+            </div>
         )
     }
 };

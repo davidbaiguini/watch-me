@@ -33,6 +33,7 @@
     "json5-loader": "^0.6.0",
     "jsx-loader": "^0.13.2",
     "lodash": "^4.14.1",
+    "moment": "^2.14.1",
     "node-libs-browser": "1.0.0",
     "normalize.css": "^4.2.0",
     "react": "15.2.1",

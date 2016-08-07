@@ -24,11 +24,14 @@ class Player extends Component {
         }
 
         return (
-            <div className="grid">
-                <h1>{title}</h1>
+            <div className="movie">
+                <h2 className="movie__title">{title}</h2>
                 <ReactPlayer url={videoUrl}
-                            controls={true}
-                            onStart={this.onStart.bind(this)} />
+                             controls={true}
+                             onStart={this.onStart.bind(this)}
+                             width="100%"
+                             height="100%"
+                 />
             </div>
         )
     }
