@@ -67,3 +67,20 @@ Open video in fullscreen
 Add hover on mouseHover
 Add animation between "Pages"
 Add socketIO to retrieve stuff :p
+Add materialize
+Import SCSS vendors from node_module
+Replace icons with fontello
+Add continuous Integration
+
+// Uses:
+React
+Redux
+Axios
+Docker
+Docker
+RethinkDB
+Webpack
+sass(scss)
+
+// Demo
+In a Ubuntu droplet on DigitalOcean: http://188.166.255.218:8888/

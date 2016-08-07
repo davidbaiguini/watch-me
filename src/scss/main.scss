@@ -1,9 +1,9 @@
 @import "base/settings";
+@import "base/core";
 
 @import "vendors/flexyGrid";
+@import "vendors/normalize";
 
 @import "components/movieTile";
-
-body {
-    background: #282C34;
-}
+@import "components/header";
+@import "components/nav";

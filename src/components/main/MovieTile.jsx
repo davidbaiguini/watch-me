@@ -10,7 +10,7 @@ export default class MovieTile extends Component {
 	}
 	render() {
 		let classes = classNames(
-			'grid__item one-half tablet--one-quarter movie-tile', {
+			'grid__item one-half mobile--one-third tablet--one-quarter desktop--one-fifth wide--one-sixth movie-tile', {
 				'active': this.props.indexActiveMovie === this.props.index
 			}
 		);

@@ -1,11 +1,15 @@
 .movie-tile {
+    > a {
+        text-decoration: none;
+    }
     &__figure {
-        margin: 0
+        margin: 0;
     }
     &__img {
         width: 100%;
         border: solid 2px black;
         box-shadow: 0px 0px 5px black;
+        box-sizing: content-box;
 
         .active & {
             border: solid 2px #cbb546;
@@ -17,8 +21,13 @@
     }
     &__title {
         color: white;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 14px;
     }
     &__published-date {
         color: grey;
+        font-size: 12px;
     }
 }
