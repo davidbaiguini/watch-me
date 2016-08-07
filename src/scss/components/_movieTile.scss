@@ -1,0 +1,24 @@
+.movie-tile {
+    &__figure {
+        margin: 0
+    }
+    &__img {
+        width: 100%;
+        border: solid 2px black;
+        box-shadow: 0px 0px 5px black;
+
+        .active & {
+            border: solid 2px #cbb546;
+            box-shadow: 0px 0px 5px #dcc75b;
+        }
+    }
+    &__caption {
+        margin-top: ($gutter / 4);
+    }
+    &__title {
+        color: white;
+    }
+    &__published-date {
+        color: grey;
+    }
+}

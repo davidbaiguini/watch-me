@@ -1,0 +1,7 @@
+web:
+    container_name: "watchme-web"
+    image: "davidbaiguini/watchme-web"
+    ports:
+    - "8888:80"
+    volumes:
+    - ./dist:/dist

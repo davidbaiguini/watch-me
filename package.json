@@ -1,0 +1,62 @@
+{
+  "name": "watch-me",
+  "version": "0.0.1",
+  "description": "Watch me - React Webpack Babel Starter Kit",
+  "main": "''",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "webpack -p --config webpack.production.config.js --progress --profile --colors",
+    "dev": "webpack-dev-server --progress --profile --colors --hot"
+  },
+  "keywords": [
+    "React",
+    "Webpack",
+    "Babel",
+    "Starter",
+    "template"
+  ],
+  "author": "David Baiguini",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.3",
+    "babel-core": "6.10.4",
+    "babel-loader": "6.2.4",
+    "babel-preset-es2015": "6.9.0",
+    "babel-preset-react": "6.11.1",
+    "babel-preset-stage-2": "^6.13.0",
+    "bootstrap": "3.3.7",
+    "classnames": "^2.2.5",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "0.23.1",
+    "file-loader": "0.9.0",
+    "json-loader": "^0.5.4",
+    "json5-loader": "^0.6.0",
+    "jsx-loader": "^0.13.2",
+    "lodash": "^4.14.1",
+    "node-libs-browser": "1.0.0",
+    "react": "15.2.1",
+    "react-dom": "15.2.1",
+    "react-hot-loader": "1.3.0",
+    "react-hotkey": "^0.6.0",
+    "react-player": "^0.8.0",
+    "react-window-resize-listener": "^1.1.0",
+    "style-loader": "0.13.1",
+    "url-loader": "0.5.7",
+    "webpack": "1.13.1"
+  },
+  "devDependencies": {
+    "axios": "^0.13.1",
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.2.0",
+    "eslint-plugin-react": "^5.2.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.8.0",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "redux": "^3.5.2",
+    "redux-logger": "^2.6.1",
+    "redux-thunk": "^2.1.0",
+    "sass-loader": "^4.0.0",
+    "webpack-dev-server": "1.14.1"
+  }
+}
