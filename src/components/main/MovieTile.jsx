@@ -5,7 +5,7 @@ import moment from 'moment';
 
 export default class MovieTile extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
 		this.movie = this.props.data;
 		this.movie.url = `/movie/${this.movie.id}`;
 		this.publishedDate = moment(this.movie.publishedDate).format('YYYY');
@@ -24,7 +24,7 @@ export default class MovieTile extends Component {
 							<img src={this.movie.images[0].url}
 								alt={this.movie.title}
 								className="movie-tile__img img-placeholder__img"
-								/>
+							/>
 						</div>
 						<figcaption className="movie-tile__caption">
 							<div className="movie-tile__title">

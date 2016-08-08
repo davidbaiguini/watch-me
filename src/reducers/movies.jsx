@@ -4,18 +4,19 @@ export default function moviesReducer(state=initialState.movies, action='') {
     switch (action.type) {
 
         case 'LOAD_MOVIES_STARTED': {
-          return { ...state, loading: true}
+          return { ...state, loading: true };
         }
 
         case 'LOAD_MOVIES_COMPLETED': {
-          return { ...state, ...action.data, loading: false}
+          return { ...state, ...action.data, loading: false };
         }
 
         case 'LOAD_MOVIES_FAILED': {
-          return { ...state, ...action.data, loading: false}
+          return { ...state, ...action.data, loading: false };
         }
 
         case 'PLAY_VIDEO_START': {
+
             return Object.assign({}, state, {
                 entries: state.entries.map(movie => {
                     if(movie.id === action.id ) {
@@ -24,10 +25,9 @@ export default function moviesReducer(state=initialState.movies, action='') {
                         movie.isPlaying=false;
                     }
                     return movie;
-                }
-
-                )
+                })
             })
+
         }
 
         case 'UPDATE_INDEX_ACTIVE': {
@@ -37,4 +37,5 @@ export default function moviesReducer(state=initialState.movies, action='') {
     }
 
     return state;
+
 };

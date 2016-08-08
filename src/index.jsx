@@ -7,7 +7,7 @@ import MainLayout from 'containers/MainLayout.jsx';
 import Movie from 'containers/Movie.jsx';
 import Recent from 'containers/Recent.jsx';
 import MoviesList from 'containers/MoviesList.jsx';
-import store from 'store/store.jsx'
+import store from 'store/store.jsx';
 
 require('scss/main.scss');
 

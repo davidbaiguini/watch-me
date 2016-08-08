@@ -17,11 +17,13 @@ hotkey.activate();
 
 
 class MoviesList extends Component {
+
     constructor() {
-        super()
+        super();
         this.hotkeyHandler = this.handleHotkey.bind(this);
         this.itemsPerRow = 0;
     }
+
     getItemsPerRow() {
         if (this.refs.grid.childElementCount > 0) {
             let widthGrid =  parseInt(window.getComputedStyle(this.refs.grid).width, 10);
@@ -31,52 +33,49 @@ class MoviesList extends Component {
         }
         return 0;
     }
+
     handleResize(windowSize) {
         this.itemsPerRow = this.getItemsPerRow();
     }
+
     handleHotkey(e) {
-        console.log(e);
         const keycode = e.keyCode;
         e.nativeEvent.preventDefault();
 
         if ( KEYMAP[keycode] !== undefined ) {
 
-            let newIndexActiveMovie = this.props.movies.indexActiveMovie;
             const maxIndex = this.props.movies.totalCount - 1;
+            let indexActiveMovie = this.props.movies.indexActiveMovie;
+            let newIndexActiveMovie = indexActiveMovie;
             let itemsPerRow = this.itemsPerRow;
 
             if(itemsPerRow === 0) {
                 itemsPerRow = this.getItemsPerRow();
             }
 
-            console.log("##################### this.itemsPerRow", itemsPerRow);
-
             switch(KEYMAP[keycode]) {
                 case "UP" : {
-                    if(newIndexActiveMovie == -1) {
+                    if(indexActiveMovie == -1) {
                         newIndexActiveMovie = 0;
-                    } else if (newIndexActiveMovie > itemsPerRow - 1) {
-                        newIndexActiveMovie = newIndexActiveMovie - itemsPerRow;
+                    } else if (indexActiveMovie > itemsPerRow - 1) {
+                        newIndexActiveMovie = indexActiveMovie - itemsPerRow;
                     }
-
                     break;
                 }
                 case "DOWN" : {
-                    if(newIndexActiveMovie == -1) {
+                    if(indexActiveMovie == -1) {
                         newIndexActiveMovie = 0;
-                    } else if(newIndexActiveMovie < maxIndex - itemsPerRow + 1) {
-                        newIndexActiveMovie = newIndexActiveMovie + itemsPerRow;
+                    } else if(indexActiveMovie < maxIndex - itemsPerRow + 1) {
+                        newIndexActiveMovie = indexActiveMovie + itemsPerRow;
                     }
                     break;
                 }
                 case "RIGHT" : {
-                    console.log("right");
-                    (newIndexActiveMovie < maxIndex) ? newIndexActiveMovie++ : newIndexActiveMovie=maxIndex;
+                    newIndexActiveMovie = (indexActiveMovie < maxIndex ? ++indexActiveMovie : maxIndex);
                     break;
                 }
                 case "LEFT" : {
-                    console.log("left");
-                    (newIndexActiveMovie > 0) ? newIndexActiveMovie-- : newIndexActiveMovie=0;
+                    newIndexActiveMovie = (indexActiveMovie > 0) ? --indexActiveMovie : 0;
                     break;
                 }
                 case "ENTER" : {
@@ -85,18 +84,19 @@ class MoviesList extends Component {
                     break;
                 }
             }
-
-            console.log("newIndexActiveMovie", newIndexActiveMovie);
             this.props.actions.updateIndexActiveMovie(newIndexActiveMovie);
          }
     }
+
     componentDidMount() {
         hotkey.addHandler(this.hotkeyHandler);
         this.getItemsPerRow();
     }
+
     componentWillUnmount() {
         hotkey.removeHandler(this.hotkeyHandler);
     }
+
 	render() {
         const movies = this.props.movies;
 		return (
@@ -138,3 +138,5 @@ const mapDispatchToProps = function (dispatch) {
 
 // Connect
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesList)
+
+// dfddd

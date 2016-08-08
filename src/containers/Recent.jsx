@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import _ from 'lodash';
+// import {bindActionCreators} from 'redux';
+// import {connect} from 'react-redux';
+// import _ from 'lodash';
 
-import * as MoviesActions from 'actions/movies.jsx'
-import MovieTile from 'components/main/MovieTile.jsx'
+import * as MoviesActions from 'actions/movies.jsx';
+import MovieTile from 'components/main/MovieTile.jsx';
 
 export default class Player extends Component {
 

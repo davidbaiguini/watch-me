@@ -1,6 +1,6 @@
 import {createStore, applyMiddleware, compose} from 'redux';
 import createLoggerMiddleware from 'redux-logger';
-import thunkMiddleware from 'redux-thunk'
+import thunkMiddleware from 'redux-thunk';
 
 import reducers from 'reducers/root.jsx';
 import initialState from 'store/initialState.jsx';

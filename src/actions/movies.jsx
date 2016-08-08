@@ -10,8 +10,8 @@ export function loadMovies() {
                 dispatch({ type: "LOAD_MOVIES_COMPLETED", data: response.data });
             })
             .catch((err) => {
-                dispatch({ type: "LOAD_MOVIES_FAILED", data: err })
-            })
+                dispatch({ type: "LOAD_MOVIES_FAILED", data: err });
+            });
     };
 
 }
@@ -20,19 +20,19 @@ export function playMovie(movieId) {
     return {
         type: "PLAY_VIDEO_START",
         id: movieId
-    }
+    };
 }
 
 export function getMovie(movieId) {
     return {
         type: "PLAY_VIDEO_START",
         id: movieId
-    }
+    };
 }
 
 export function updateIndexActiveMovie(newIndexActiveMovie) {
     return {
         type: "UPDATE_INDEX_ACTIVE",
         index: newIndexActiveMovie
-    }
+    };
 }

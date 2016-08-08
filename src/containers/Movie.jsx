@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import ReactPlayer from 'react-player';
 import _ from 'lodash';
 
-import * as MoviesActions from 'actions/movies.jsx'
+import * as MoviesActions from 'actions/movies.jsx';
 
 class Player extends Component {
     // componentDidMount() {}
@@ -15,7 +15,7 @@ class Player extends Component {
     render () {
         let videoUrl = "",
             title = "";
-        const movies = this.props.movies.entries
+        const movies = this.props.movies.entries;
 
         if(movies.length > 0) {
             const movie = _.find(movies, {id: this.props.params.movieId});

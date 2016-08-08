@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 import {Header} from 'components/header/header.jsx';
-import * as Movies from 'actions/movies.jsx'
+import * as Movies from 'actions/movies.jsx';
 
 
 export default class MainLayout extends Component {
