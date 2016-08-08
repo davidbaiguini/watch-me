@@ -1,7 +1,19 @@
-web:
-    container_name: "watchme-web"
-    image: "davidbaiguini/watchme-web"
-    ports:
-    - "8888:80"
-    volumes:
-    - ./dist:/dist
+version: '2'
+services:
+    web:
+        container_name: "watchme-web"
+        image: "davidbaiguini/watchme-web"
+        ports:
+            - "8888:80"
+        volumes:
+            - ./dist:/dist
+        links:
+            - "db:db"
+    db:
+        container_name: "watchme-db"
+        image: "rethinkdb"
+        ports:
+            - "28014:8080"
+            - "28015:28015"
+        volumes:
+            - .:/data
