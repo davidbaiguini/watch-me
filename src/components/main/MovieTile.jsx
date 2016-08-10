@@ -1,15 +1,25 @@
 import React, {Component} from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import classNames from 'classnames';
 import moment from 'moment';
 
-export default class MovieTile extends Component {
-	constructor(props) {
+import * as MoviesActions from 'actions/movies.jsx';
+
+class MovieTile extends Component {
+
+    constructor(props) {
 		super(props);
 		this.movie = this.props.data;
 		this.movie.url = `/movie/${this.movie.id}`;
 		this.publishedDate = moment(this.movie.publishedDate).format('YYYY');
 	}
+
+    handleHover(e) {
+        this.props.actions.updateIndexActiveMovie(this.props.index);
+    }
+
 	render() {
 		let classes = classNames(
 			'grid__item one-half mobile--one-third tablet--one-quarter desktop--one-fifth wide--one-sixth movie-tile', {
@@ -17,7 +27,7 @@ export default class MovieTile extends Component {
 			}
 		);
 		return (
-			<li className={classes} >
+			<li className={classes} onMouseEnter={this.handleHover.bind(this)}>
 				<Link to={this.movie.url}>
 					<figure className="movie-tile__figure">
 						<div className="img-placeholder">
@@ -40,3 +50,13 @@ export default class MovieTile extends Component {
 		)
 	}
 }
+
+// Maps
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators(MoviesActions, dispatch)
+    }
+}
+
+// Connect
+export default connect(null, mapDispatchToProps)(MovieTile);

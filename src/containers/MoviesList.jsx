@@ -6,14 +6,21 @@ import hotkey from 'react-hotkey';
 import _ from 'lodash';
 import { WindowResizeListener } from 'react-window-resize-listener';
 
-import * as Movies from 'actions/movies.jsx';
+import * as MoviesActions from 'actions/movies.jsx';
 import MovieTile from 'components/main/MovieTile.jsx';
 import KEYMAP from 'constants/keymap.jsx';
 import {browserHistory} from 'react-router';
 
 
-hotkey.activate();
-// hotkey.activate('keydown');
+hotkey.activate('keydown');
+
+function isInViewport(el) {
+    var rect = el.getBoundingClientRect();
+    return (rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= window.innerHeight &&
+            rect.right <= window.innerWidth);
+}
 
 
 class MoviesList extends Component {
@@ -40,9 +47,11 @@ class MoviesList extends Component {
 
     handleHotkey(e) {
         const keycode = e.keyCode;
-        e.nativeEvent.preventDefault();
 
         if ( KEYMAP[keycode] !== undefined ) {
+
+            e.preventDefault();
+            // e.stopPropagation();
 
             const maxIndex = this.props.movies.totalCount - 1;
             let indexActiveMovie = this.props.movies.indexActiveMovie;
@@ -88,6 +97,27 @@ class MoviesList extends Component {
          }
     }
 
+    scrollToElement(elem) {
+        if (elem && !isInViewport(elem)) {
+            elem.scrollIntoView({block: "end", behavior: "smooth"});
+        }
+    }
+
+    componentDidUpdate() {
+        // Scroll to item
+        let grid = this.refs.grid;
+        let indexSelectedMovie = this.props.movies.indexActiveMovie;
+        let selectedMovieElem = this.refs.grid.children[indexSelectedMovie];
+
+        if (indexSelectedMovie >= 0 ) {
+            // https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoViewIfNeeded
+            // Non-standard, may not work very well
+            selectedMovieElem.scrollIntoViewIfNeeded(false);
+            // this.scrollToElement(selectedMovieElem);
+        }
+
+    }
+
     componentDidMount() {
         hotkey.addHandler(this.hotkeyHandler);
         this.getItemsPerRow();
@@ -111,8 +141,8 @@ class MoviesList extends Component {
                                        index={index}
                                        data={movie}
                                        ref="gridItem"
-                                       indexActiveMovie={movies.indexActiveMovie}>
-                                       ref={movie.id}
+                                       indexActiveMovie={movies.indexActiveMovie}
+                                       ref={movie.id}>
     						</MovieTile>
     					)
 	                })
@@ -124,19 +154,17 @@ class MoviesList extends Component {
 
 
 // maps
-const mapStateToProps = function (state) {
+const mapStateToProps = (state) => {
   return {
     movies: state.movies
   }
 }
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return {
-    actions: bindActionCreators(Movies, dispatch)
+    actions: bindActionCreators(MoviesActions, dispatch)
   }
 }
 
 // Connect
-export default connect(mapStateToProps, mapDispatchToProps)(MoviesList)
-
-// dfddd
+export default connect(mapStateToProps, mapDispatchToProps)(MoviesList);
