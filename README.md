@@ -83,3 +83,4 @@ docker-compose up -d
 - [ ] Add unitTests
 - [ ] Remove devTools for build
 - [ ] Add active state to current page in header nav
+- [ ] Add service worker for offline
