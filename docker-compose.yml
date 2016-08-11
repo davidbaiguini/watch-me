@@ -17,3 +17,13 @@ services:
             - "28015:28015"
         volumes:
             - .:/data
+    backend:
+        container_name: "watchme-backend"
+        image: rethinkdb/horizon-dev
+        command: su -s /bin/sh horizon -c "hz serve --dev --connect rethinkdb:28015 --bind all /usr/app"
+        volumes:
+            - ./backend:/usr/app
+        links:
+            - db:rethinkdb
+        ports:
+            - "8181:8181"
