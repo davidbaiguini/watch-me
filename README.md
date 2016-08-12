@@ -58,6 +58,7 @@ docker-compose up -d
 | [React Router](https://github.com/reactjs/react-router) | Universal routing | XXX |
 | [Redux](http://redux.js.org/) | State management | XXX |
 | [RethinkDB](http://www.rethinkdb.com) | Open-source NoSQL database with baked in realtime capabilities | XXX |
+| [horizon](http://horizon.io/) | Open-source realtime JavaScript backend | XXX |
 | [Express](http://expressjs.com/) | node server framework | XXX |
 | [Webpack](https://webpack.github.io/) | Module bundling + build for client | XXX |
 | [SASS](http://sass-lang.com/) |  stylesheet language, makes CSS fun again | XXX |
@@ -66,13 +67,13 @@ docker-compose up -d
 
 
 ### TODO
-- [ ] prevent scroll on key up and key down on movies list page
+- [x] prevent scroll on key up and key down on movies list page
 - [ ] Add description page
 - [ ] Add overlay to article-tile
-- [ ] Add placeholder to article-tile image before it gets loaded
+- [x] Add placeholder to article-tile image before it gets loaded
 - [ ] Add different configuration files for dev and prod
 - [ ] Open video in fullscreen
-- [ ] Add hover on mouseHover
+- [x] Add hover on mouseHover
 - [ ] Add animation between "Pages"
 - [ ] Add socketIO to retrieve stuff :p
 - [ ] Add materialize
@@ -84,3 +85,5 @@ docker-compose up -d
 - [ ] Remove devTools for build
 - [ ] Add active state to current page in header nav
 - [ ] Add service worker for offline
+- [ ] Add web component
+- [ ] Clean config.js

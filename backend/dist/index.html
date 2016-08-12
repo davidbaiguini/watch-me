@@ -5,41 +5,54 @@
 	<meta charset="UTF-8">
 	<script src="/horizon/horizon.js"></script>
     <title>WatchMe: Horizon server</title>
-	<!-- <script src="http://localhost:8181/horizon/horizon.js"></script> -->
 	<script>
 		var horizon = Horizon();
 
         horizon.onReady(function() {
-			document.querySelector('h1').innerHTML = 'react_horizon works!';
-
             console.log("Horizon ready");
 
-            // let message = {
-            //     text: "What a beautiful horizon!",
-            //     datetime: new Date(),
-            //     author: "@dalanmiller"
-            // };
-            //
-            // horizon.store(message);
+            // Create message collection in "watch-me" database
+            const chat = horizon("messages");
 
+            let message = {
+                text: "What a beautiful horizon 3!",
+                datetime: new Date(),
+                author: "@dalanmiller"
+            };
 
-            horizon("collections").fetch().subscribe(
-                result => {
-                    console.log('Result:', result);
-                },
-                    err => {console.error(err);
-                },
-                () => {
-                    console.log('Results fetched');
-                }
-            );
+            // Store the message in the DB, => "insert"
+            chat
+                .store(message)
+                .subscribe(
+                    (id) => console.log("id value:", id),
+                    (err) => console.error(err)
+                );
+
+            // fetch, return a "snapshot" of the result => "select"
+            chat
+                .fetch()
+                .subscribe(
+                    (items) => items.forEach((item) => console.log(item)),
+                    (err) => console.log(err),
+                    () => console.log('Results fetched')
+                );
+
+            // watch, on change.
+            chat
+                .watch()
+                .subscribe((docs) => {
+                    console.log(docs);
+                });
+
 		});
+
+
 		horizon.connect();
 	</script>
 </head>
 
 <body>
-	<h1></h1>
+	<h1>watch-me: Horizon :)</h1>
 </body>
 
 </html>
