@@ -29,6 +29,9 @@ node_modules
 # RethinkDB data files
 rethinkdb_data
 
+# IDE
+.idea
+
 # Ignore build files
 /build
 /dist
